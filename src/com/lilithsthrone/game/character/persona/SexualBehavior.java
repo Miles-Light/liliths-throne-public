@@ -1,6 +1,5 @@
 package com.lilithsthrone.game.character.persona;
 
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -77,7 +76,7 @@ public enum SexualBehavior {
 	 * 
 	 * Anyway.
 	 */
-	public static SexualBehavior generate(HashMap<PersonalityTrait, PersonalityWeight> personality) {
+	public static SexualBehavior generate(Map<PersonalityTrait, PersonalityWeight> personality) {
 		//S_EXP
 		switch (personality.get(PersonalityTrait.EXTROVERSION)) {
 		case AVERAGE:
@@ -94,8 +93,8 @@ public enum SexualBehavior {
 
 
 
-	private static SexualBehavior generateAverage(HashMap<PersonalityTrait, PersonalityWeight> personality){
-		HashMap<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
+	private static SexualBehavior generateAverage(Map<PersonalityTrait, PersonalityWeight> personality){
+		Map<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
 		if (personalityWithoutAveragesValue.isEmpty())
 			return PLAIN;
 
@@ -113,8 +112,8 @@ public enum SexualBehavior {
 		}
 	}
 
-	private static SexualBehavior generateIntrovert(HashMap<PersonalityTrait, PersonalityWeight> personality) {
-		HashMap<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
+	private static SexualBehavior generateIntrovert(Map<PersonalityTrait, PersonalityWeight> personality) {
+		Map<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
 		if (personalityWithoutAveragesValue.isEmpty())
 			return PLAIN;
 
@@ -132,9 +131,9 @@ public enum SexualBehavior {
 		}
 	}
 
-	private static SexualBehavior generateExtrovert(HashMap<PersonalityTrait, PersonalityWeight> personality) {
+	private static SexualBehavior generateExtrovert(Map<PersonalityTrait, PersonalityWeight> personality) {
 
-		HashMap<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
+		Map<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
 		if (personalityWithoutAveragesValue.isEmpty())
 			return PLAIN;
 		Entry<PersonalityTrait, PersonalityWeight> randomEntry = randomTraitForSBGeneration(personalityWithoutAveragesValue);
@@ -158,8 +157,8 @@ public enum SexualBehavior {
 	 * 
 	 * YEAH OKAY. that's not really a list. Whatever.
 	 */
-	private static HashMap<PersonalityTrait,PersonalityWeight> listOfNonAverageTraits( HashMap<PersonalityTrait, PersonalityWeight> personality){
-		HashMap<PersonalityTrait, PersonalityWeight> fleshedOutMap = personality;
+	private static Map<PersonalityTrait,PersonalityWeight> listOfNonAverageTraits(Map<PersonalityTrait, PersonalityWeight> personality){
+		Map<PersonalityTrait, PersonalityWeight> fleshedOutMap = personality;
 		for (Map.Entry<PersonalityTrait, PersonalityWeight> e : fleshedOutMap.entrySet()){
 			if (e.getValue() == PersonalityWeight.AVERAGE)
 				fleshedOutMap.remove(e.getKey());
@@ -173,7 +172,7 @@ public enum SexualBehavior {
 	 * @return the random Trait that is going to be used for the generation.
 	 * 
 	 */
-	private static Entry<PersonalityTrait,PersonalityWeight> randomTraitForSBGeneration(HashMap<PersonalityTrait, PersonalityWeight> personalityWithoutAverageTraits){
+	private static Entry<PersonalityTrait,PersonalityWeight> randomTraitForSBGeneration(Map<PersonalityTrait, PersonalityWeight> personalityWithoutAverageTraits){
 
 		//The conscientiousness is NOT used in the computation of the sexual behavior of a game character. Bye!
 		if (personalityWithoutAverageTraits.containsKey(PersonalityTrait.CONSCIENTIOUSNESS))
@@ -195,6 +194,21 @@ public enum SexualBehavior {
 			i++;
 		}
 		return null;
+	}
+	
+	public String toString() {
+		return this.name();
+	}
+
+
+
+	public static SexualBehavior SBFromString(String string) {
+		for(SexualBehavior sb : SexualBehavior.values()) {
+			if(sb.name().compareTo(string)==0) {
+				return sb;
+			}
+		}
+		return PLAIN;
 	}
 
 }
