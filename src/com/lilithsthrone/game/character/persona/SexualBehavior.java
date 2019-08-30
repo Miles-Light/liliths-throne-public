@@ -1,5 +1,6 @@
 package com.lilithsthrone.game.character.persona;
 
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -115,7 +116,7 @@ public enum SexualBehavior {
 	private static SexualBehavior generateIntrovert(Map<PersonalityTrait, PersonalityWeight> personality) {
 		Map<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
 		if (personalityWithoutAveragesValue.isEmpty())
-			return PLAIN;
+			return SHY;
 
 		Entry<PersonalityTrait, PersonalityWeight> randomEntry = randomTraitForSBGeneration(personalityWithoutAveragesValue);
 
@@ -135,7 +136,7 @@ public enum SexualBehavior {
 
 		Map<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
 		if (personalityWithoutAveragesValue.isEmpty())
-			return PLAIN;
+			return LOP;
 		Entry<PersonalityTrait, PersonalityWeight> randomEntry = randomTraitForSBGeneration(personalityWithoutAveragesValue);
 
 		switch (randomEntry.getKey()){
@@ -158,10 +159,10 @@ public enum SexualBehavior {
 	 * YEAH OKAY. that's not really a list. Whatever.
 	 */
 	private static Map<PersonalityTrait,PersonalityWeight> listOfNonAverageTraits(Map<PersonalityTrait, PersonalityWeight> personality){
-		Map<PersonalityTrait, PersonalityWeight> fleshedOutMap = personality;
-		for (Map.Entry<PersonalityTrait, PersonalityWeight> e : fleshedOutMap.entrySet()){
-			if (e.getValue() == PersonalityWeight.AVERAGE)
-				fleshedOutMap.remove(e.getKey());
+		Map<PersonalityTrait, PersonalityWeight> fleshedOutMap = new HashMap<PersonalityTrait, PersonalityWeight>();
+		for (Map.Entry<PersonalityTrait, PersonalityWeight> e : personality.entrySet()){
+			if (e.getValue() != PersonalityWeight.AVERAGE)
+				fleshedOutMap.put(e.getKey(), e.getValue());
 		}
 		return fleshedOutMap;
 	}
@@ -173,7 +174,6 @@ public enum SexualBehavior {
 	 * 
 	 */
 	private static Entry<PersonalityTrait,PersonalityWeight> randomTraitForSBGeneration(Map<PersonalityTrait, PersonalityWeight> personalityWithoutAverageTraits){
-
 		//The conscientiousness is NOT used in the computation of the sexual behavior of a game character. Bye!
 		if (personalityWithoutAverageTraits.containsKey(PersonalityTrait.CONSCIENTIOUSNESS))
 			personalityWithoutAverageTraits.remove(PersonalityTrait.CONSCIENTIOUSNESS);

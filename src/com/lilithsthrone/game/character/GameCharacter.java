@@ -168,6 +168,7 @@ import com.lilithsthrone.game.character.persona.OccupationTag;
 import com.lilithsthrone.game.character.persona.PersonalityTrait;
 import com.lilithsthrone.game.character.persona.PersonalityWeight;
 import com.lilithsthrone.game.character.persona.Relationship;
+import com.lilithsthrone.game.character.persona.SexualBehavior; // nyeh
 import com.lilithsthrone.game.character.persona.SexualOrientation;
 import com.lilithsthrone.game.character.race.AbstractRacialBody;
 import com.lilithsthrone.game.character.race.FurryPreference;
@@ -292,6 +293,27 @@ public abstract class GameCharacter implements XMLSaving {
 	protected Map<PersonalityTrait, PersonalityWeight> personality;
 	protected SexualOrientation sexualOrientation;
 	private float obedience;
+	
+	//Oh, hello there!
+	//Wow, there is already A LOT of variables around here.
+	//Lemme just...
+	protected SexualBehavior sexualBehavior; //there.
+	
+	//Hello, i'm Miles.
+	//...Nice code you got there. 
+	//I like Java.It's so verbose.
+	//And i love to chat, so it's the perfect language for me.
+	//Anyway, this little variable boy will be handling all the "personality" fuss during sex.
+	//It's basically a representation of what i call a sexual stereotype. 
+	//It's determined with the personality of the game character, and will change his dialogue during sex depending on it.
+	// ...Yeah, looks like i'm going to have to be really imaginative on that one.
+	// Do not hesitate to take a look at the class if you want, i will document it the best i can.
+	//I'm pretty new to this. I mean, i write code for a living, but i never actually cared about something.
+	//I would love to talk more, but i need to play a bit with the xml save/load thingy.
+	//I won't break anything.
+	//...I think.
+
+
 
 	private int experience;
 	private int perkPoints;
@@ -500,6 +522,9 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		}
+		
+		//Here we go
+		sexualBehavior = SexualBehavior.generate(personality);
 		
 		sexualOrientation = startingRace.getSexualOrientation(startingGender);
 
@@ -718,7 +743,6 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		
 		
-//		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "personality", this.getPersonality().toString());
 		Element personalityElement = doc.createElement("personality");
 		characterCoreInfo.appendChild(personalityElement);
 		for(Entry<PersonalityTrait, PersonalityWeight> entry: getPersonality().entrySet()){
@@ -729,6 +753,9 @@ public abstract class GameCharacter implements XMLSaving {
 			CharacterUtils.addAttribute(doc, element, "weight", entry.getValue().toString());
 		}
 		
+
+		//swiggity swooty, lemme just add a little line here
+		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "sexualBehavior", this.sexualBehavior.toString());
 		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "sexualOrientation", this.getSexualOrientation().toString());
 		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "obedience", String.valueOf(this.getObedienceValue()));
 		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "genderIdentity", String.valueOf(this.getGenderIdentity()));
@@ -1476,7 +1503,6 @@ public abstract class GameCharacter implements XMLSaving {
 			character.setPlayerOnFirstNameTerms(Boolean.valueOf(((Element)element.getElementsByTagName("playerOnFirstNameTerms").item(0)).getAttribute("value")));
 			CharacterUtils.appendToImportLog(log, "<br/>Set playerOnFirstNameTerms: "+character.isPlayerOnFirstNameTerms());
 		}
-		
 		if(removeRaceConcealed) {
 			character.setRaceConcealed(false);
 		} else {
@@ -1525,6 +1551,15 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		
 		}
+		
+		if(element.getElementsByTagName("sexualBehavior").getLength()!=0) {
+			character.setSexualBehavior(SexualBehavior.SBFromString((((Element)element.getElementsByTagName("genericName").item(0)).getAttribute("value"))));
+		}
+		else 
+		{
+			character.setSexualBehavior(SexualBehavior.generate(character.getPersonality()));
+		}
+		//aaaaand that will be it. 
 		
 		if(element.getElementsByTagName("obedience").getLength()!=0) {
 			character.setObedienceSilentlyFromSavefile(Float.valueOf(((Element)element.getElementsByTagName("obedience").item(0)).getAttribute("value")));
@@ -3728,6 +3763,14 @@ public abstract class GameCharacter implements XMLSaving {
 	
 	public boolean isConfident() {
 		return personality.get(PersonalityTrait.NEUROTICISM)==PersonalityWeight.LOW;
+	}
+
+	public SexualBehavior getSexualBehavior() {
+		return sexualBehavior;
+	}
+
+	public void setSexualBehavior(SexualBehavior sexualBehavior) {
+		this.sexualBehavior = sexualBehavior;
 	}
 
 	public SexualOrientation getSexualOrientation() {
