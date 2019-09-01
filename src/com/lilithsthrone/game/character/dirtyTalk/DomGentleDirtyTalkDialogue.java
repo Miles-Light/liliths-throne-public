@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.dirtyTalk;
 
-public enum DomGentleDirtyTalkDialogue implements DirtyTalkDialogue{
+public enum DomGentleDirtyTalkDialogue {
 	DOM_GENTLE_PLAIN_NOPENETRATION_1("DOM_GENTLE_PLAIN_NOPENETRATION_1"),
 	DOM_GENTLE_PLAIN_NOPENETRATION_2("DOM_GENTLE_PLAIN_NOPENETRATION_2"),
 	DOM_GENTLE_PLAIN_NOPENETRATION_3("DOM_GENTLE_PLAIN_NOPENETRATION_3"),

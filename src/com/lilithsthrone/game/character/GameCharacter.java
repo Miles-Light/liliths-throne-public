@@ -6721,7 +6721,7 @@ public abstract class GameCharacter implements XMLSaving {
 				s = getDirtyTalkNoPenetration(Sex.getTargetedPartner(this), isPlayerDom);
 			}**/
 			
-			
+			String s = UtilText.parseSpeech(DirtyTalkRetriever.retrieveDirtyTalk(this),this);
 			return UtilText.parseSpeech(DirtyTalkRetriever.retrieveDirtyTalk(this),this);
 		}
 	}

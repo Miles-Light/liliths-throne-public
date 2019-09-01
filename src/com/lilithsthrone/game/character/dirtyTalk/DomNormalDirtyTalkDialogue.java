@@ -1,6 +1,8 @@
 package com.lilithsthrone.game.character.dirtyTalk;
 
-public enum DomNormalDirtyTalkDialogue {
+import java.util.List;
+
+public enum DomNormalDirtyTalkDialogue{
 	DOM_NORMAL_PLAIN_NOPENETRATION_1("DOM_NORMAL_PLAIN_NOPENETRATION_1"),
 	DOM_NORMAL_PLAIN_NOPENETRATION_2("DOM_NORMAL_PLAIN_NOPENETRATION_2"),
 	DOM_NORMAL_PLAIN_NOPENETRATION_3("DOM_NORMAL_PLAIN_NOPENETRATION_3"),
@@ -322,4 +324,6 @@ public enum DomNormalDirtyTalkDialogue {
 	DomNormalDirtyTalkDialogue(String dialogue){
 		this.dialogue=dialogue;
 	}
+	
+
 }
