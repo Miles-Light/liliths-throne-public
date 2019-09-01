@@ -130,6 +130,7 @@ import com.lilithsthrone.game.character.body.valueEnums.TongueLength;
 import com.lilithsthrone.game.character.body.valueEnums.TongueModifier;
 import com.lilithsthrone.game.character.body.valueEnums.Wetness;
 import com.lilithsthrone.game.character.body.valueEnums.WingSize;
+import com.lilithsthrone.game.character.dirtyTalk.DirtyTalkRetriever;
 import com.lilithsthrone.game.character.effects.AbstractPerk;
 import com.lilithsthrone.game.character.effects.Addiction;
 import com.lilithsthrone.game.character.effects.Perk;
@@ -6612,11 +6613,10 @@ public abstract class GameCharacter implements XMLSaving {
 	 * @return A <b>formatted</b> piece of speech, reacting to any current penetration.
 	 */
 	public String getDirtyTalk() {
-		if(!Main.game.isInSex()) {
-			return "";
-		
-		} else {
-			boolean isPlayerDom = Sex.isDom(Main.game.getPlayer());
+		if(!Main.game.isInSex())
+			return "";		
+		else {
+				/**boolean isPlayerDom = Sex.isDom(Main.game.getPlayer());
 			List<String> speech = new ArrayList<>();
 			String s = "";
 			GameCharacter target = Sex.getTargetedPartner(this);
@@ -6719,9 +6719,10 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			} else {
 				s = getDirtyTalkNoPenetration(Sex.getTargetedPartner(this), isPlayerDom);
-			}
+			}**/
 			
-			return UtilText.parseSpeech(s, this);
+			
+			return UtilText.parseSpeech(DirtyTalkRetriever.retrieveDirtyTalk(this),this);
 		}
 	}
 	
