@@ -1,11 +1,12 @@
 package com.lilithsthrone.game.character.dirtyTalk;
 
-public enum DomGentleDirtyTalkDialogue {
-	DOM_GENTLE_PLAIN_NOPENETRATION_1("DOM_GENTLE_PLAIN_NOPENETRATION_1"),
-	DOM_GENTLE_PLAIN_NOPENETRATION_2("DOM_GENTLE_PLAIN_NOPENETRATION_2"),
-	DOM_GENTLE_PLAIN_NOPENETRATION_3("DOM_GENTLE_PLAIN_NOPENETRATION_3"),
-	DOM_GENTLE_PLAIN_NOPENETRATION_4("DOM_GENTLE_PLAIN_NOPENETRATION_4"),
-	DOM_GENTLE_PLAIN_NOPENETRATION_5("DOM_GENTLE_PLAIN_NOPENETRATION_5"),
+public enum DomGentleDirtyTalk {
+
+	DOM_GENTLE_PLAIN_NOPENETRATION_1("I'll be gentle, don't worry!"),
+	DOM_GENTLE_PLAIN_NOPENETRATION_2("You're going to be a good [npc2.girl] now, aren't you?"),
+	DOM_GENTLE_PLAIN_NOPENETRATION_3("Let's have some fun!"),
+	DOM_GENTLE_PLAIN_NOPENETRATION_4("You're going to love this!"),
+	DOM_GENTLE_PLAIN_NOPENETRATION_5("I'm going to take good care of you!"),
 	DOM_GENTLE_CURIOUS_NOPENETRATION_1("DOM_GENTLE_CURIOUS_NOPENETRATION_1"),
 	DOM_GENTLE_CURIOUS_NOPENETRATION_2("DOM_GENTLE_CURIOUS_NOPENETRATION_2"),
 	DOM_GENTLE_CURIOUS_NOPENETRATION_3("DOM_GENTLE_CURIOUS_NOPENETRATION_3"),
@@ -319,7 +320,7 @@ public enum DomGentleDirtyTalkDialogue {
 	
 	public String dialogue;
 	
-	DomGentleDirtyTalkDialogue(String dialogue){
+	DomGentleDirtyTalk(String dialogue){
 		this.dialogue = dialogue;
 	}
 }

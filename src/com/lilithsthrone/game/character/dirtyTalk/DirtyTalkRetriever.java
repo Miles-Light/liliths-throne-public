@@ -43,7 +43,7 @@ public abstract class DirtyTalkRetriever {
 			if (isTheActionOngoingNotPenetrative) {
 				id+=NOPENE;
 			}
-				return DirtyTalkDialogue.getDirtyTalkFromId(character,id)+"!"; //Exclamation mark is here just for testing, TODO remove it
+				return DirtyTalk.getDirtyTalkFromId(character,id)+"!"; //Exclamation mark is here just for testing, TODO remove it
 
 		}
 	}

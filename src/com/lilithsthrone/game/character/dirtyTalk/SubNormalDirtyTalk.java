@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.dirtyTalk;
 
-public enum SubNormalDirtyTalkDialogue{
+public enum SubNormalDirtyTalk{
 	SUB_NORMAL_PLAIN_NOPENETRATION_1("I'll be a good [npc.girl]!"),
 	SUB_NORMAL_PLAIN_NOPENETRATION_2("I'll do whatever you want!"),
 	SUB_NORMAL_PLAIN_NOPENETRATION_3("Let's get started!"),
@@ -319,7 +319,7 @@ public enum SubNormalDirtyTalkDialogue{
 
 	public String dialogue;
 	
-	SubNormalDirtyTalkDialogue(String dialogue){
+	SubNormalDirtyTalk(String dialogue){
 		this.dialogue=dialogue;
 	}
 }

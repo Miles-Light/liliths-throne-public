@@ -6,7 +6,7 @@ import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.utils.Util;
 
-public class DirtyTalkDialogue  {
+public class DirtyTalk  {
 
 	public static final String defaultDialogue ="ah!"; //Felling Uninspired now, might delete it later idk
 													//Idea : maybe add a final List of String instead and return one at random, and add a log in error.log if something fuck up
@@ -25,38 +25,38 @@ public class DirtyTalkDialogue  {
 		switch (Sex.getSexPace(character)) {
 			
 		case DOM_GENTLE:
-			for (DomGentleDirtyTalkDialogue aurelie : DomGentleDirtyTalkDialogue.values()) {
+			for (DomGentleDirtyTalk aurelie : DomGentleDirtyTalk.values()) {
 				if (id.equals(idWithoutNumber(aurelie.name())))
 					listDialogues.add(aurelie.dialogue);
 			}
 			return generateDialogueFromList(listDialogues);
 		case DOM_NORMAL:
-			for (DomNormalDirtyTalkDialogue lhaura : DomNormalDirtyTalkDialogue.values()) {
+			for (DomNormalDirtyTalk lhaura : DomNormalDirtyTalk.values()) {
 				if (id.equals(idWithoutNumber(lhaura.name())))
 					listDialogues.add(lhaura.dialogue);
 			}
 			return generateDialogueFromList(listDialogues);
 		case DOM_ROUGH:
-			for (DomRoughDirtyTalkDialogue manon : DomRoughDirtyTalkDialogue.values()) {
+			for (DomRoughDirtyTalk manon : DomRoughDirtyTalk.values()) {
 				if (id.equals(idWithoutNumber(manon.name())))
 					listDialogues.add(manon.dialogue);
 			}
 			if(true);
 			return generateDialogueFromList(listDialogues);
 		case SUB_EAGER:
-			for (SubEagerDirtyTalkDialogue angelica : SubEagerDirtyTalkDialogue.values()) {
+			for (SubEagerDirtyTalk angelica : SubEagerDirtyTalk.values()) {
 				if (id.equals(idWithoutNumber(angelica.name())))
 					listDialogues.add(angelica.dialogue);
 			}
 			return generateDialogueFromList(listDialogues);
 		case SUB_NORMAL:
-			for (SubNormalDirtyTalkDialogue samantha : SubNormalDirtyTalkDialogue.values()) {
+			for (SubNormalDirtyTalk samantha : SubNormalDirtyTalk.values()) {
 				if (id.equals(idWithoutNumber(samantha.name())))
 					listDialogues.add(samantha.dialogue);
 			}
 			return generateDialogueFromList(listDialogues);
 		case SUB_RESISTING:
-			for (SubResistingDirtyTalkDialogue thinkingEmoji : SubResistingDirtyTalkDialogue.values()) {
+			for (SubResistingDirtyTalk thinkingEmoji : SubResistingDirtyTalk.values()) {
 				if (id.equals(idWithoutNumber(thinkingEmoji.name())))
 					listDialogues.add(thinkingEmoji.dialogue);
 			}

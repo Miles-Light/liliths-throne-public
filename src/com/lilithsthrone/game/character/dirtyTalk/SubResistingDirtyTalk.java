@@ -1,6 +1,6 @@
 package com.lilithsthrone.game.character.dirtyTalk;
 
-public enum SubResistingDirtyTalkDialogue{
+public enum SubResistingDirtyTalk{
 	SUB_RESISTIVE_PLAIN_NOPENETRATION_1("SUB_RESISTIVE_PLAIN_NOPENETRATION_1"),
 	SUB_RESISTIVE_PLAIN_NOPENETRATION_2("SUB_RESISTIVE_PLAIN_NOPENETRATION_2"),
 	SUB_RESISTIVE_PLAIN_NOPENETRATION_3("SUB_RESISTIVE_PLAIN_NOPENETRATION_3"),
@@ -319,7 +319,7 @@ public enum SubResistingDirtyTalkDialogue{
 
 	public String dialogue; 
 	
-	SubResistingDirtyTalkDialogue(String dialogue){
+	SubResistingDirtyTalk(String dialogue){
 		this.dialogue=dialogue;
 	}
 }

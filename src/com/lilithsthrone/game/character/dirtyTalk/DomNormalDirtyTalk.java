@@ -6,7 +6,7 @@ package com.lilithsthrone.game.character.dirtyTalk;
 //null
 //phrase trop longue
 
-public enum DomNormalDirtyTalkDialogue{
+public enum DomNormalDirtyTalk{
 	DOM_NORMAL_PLAIN_NOPENETRATION_1("This is going to be good!"),
 	DOM_NORMAL_PLAIN_NOPENETRATION_2("How best to use you, I wonder..."),
 	DOM_NORMAL_PLAIN_NOPENETRATION_3("You're going to be a good [npc2.girl]!"),
@@ -325,7 +325,7 @@ public enum DomNormalDirtyTalkDialogue{
 	
 	public String dialogue;
 	
-	DomNormalDirtyTalkDialogue(String dialogue){
+	DomNormalDirtyTalk(String dialogue){
 		this.dialogue=dialogue;
 	}
 	

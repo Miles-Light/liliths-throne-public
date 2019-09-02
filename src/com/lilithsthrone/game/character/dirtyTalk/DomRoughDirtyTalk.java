@@ -19,7 +19,7 @@ package com.lilithsthrone.game.character.dirtyTalk;
 
 
 
-public enum DomRoughDirtyTalkDialogue {
+public enum DomRoughDirtyTalk {
 	
 
 	DOM_ROUGH_PLAIN_NOPENETRATION_1("DOM_ROUGH_PLAIN_NOPENETRATION_1"),
@@ -340,7 +340,7 @@ public enum DomRoughDirtyTalkDialogue {
 
 	public String dialogue;
 	
-	DomRoughDirtyTalkDialogue(String dialogue){
+	DomRoughDirtyTalk(String dialogue){
 		this.dialogue = dialogue;
 	}
 }

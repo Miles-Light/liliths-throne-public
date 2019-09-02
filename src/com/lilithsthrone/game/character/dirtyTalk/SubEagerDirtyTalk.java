@@ -3,7 +3,7 @@ package com.lilithsthrone.game.character.dirtyTalk;
 
 
 
-public enum SubEagerDirtyTalkDialogue{
+public enum SubEagerDirtyTalk{
 	
 	SUB_EAGER_PLAIN_NOPENETRATION_1("SUB_EAGER_PLAIN_NOPENETRATION_1"),
 	SUB_EAGER_PLAIN_NOPENETRATION_2("SUB_EAGER_PLAIN_NOPENETRATION_2"),
@@ -323,7 +323,7 @@ public enum SubEagerDirtyTalkDialogue{
 	
 	public String dialogue;
 	
-	SubEagerDirtyTalkDialogue(String dialogue){
+	SubEagerDirtyTalk(String dialogue){
 		this.dialogue = dialogue;
 	}
 }
