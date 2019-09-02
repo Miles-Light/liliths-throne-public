@@ -524,9 +524,8 @@ public abstract class GameCharacter implements XMLSaving {
 			}
 		}
 		
-		//Here we go
+		//To be honest, i'm not really sure of this implementation now. I should check how NPC are generated and adapt.
 		sexualBehavior = SexualBehavior.generate(personality);
-		
 		sexualOrientation = startingRace.getSexualOrientation(startingGender);
 
 		affectionMap = new HashMap<>();
@@ -755,7 +754,7 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		
 
-		//swiggity swooty, lemme just add a little line here
+		
 		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "sexualBehavior", this.sexualBehavior.toString());
 		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "sexualOrientation", this.getSexualOrientation().toString());
 		CharacterUtils.createXMLElementWithValue(doc, characterCoreInfo, "obedience", String.valueOf(this.getObedienceValue()));
@@ -1554,7 +1553,7 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		
 		if(element.getElementsByTagName("sexualBehavior").getLength()!=0) {
-			character.setSexualBehavior(SexualBehavior.SBFromString((((Element)element.getElementsByTagName("genericName").item(0)).getAttribute("value"))));
+			character.setSexualBehavior(SexualBehavior.SBFromString((((Element)element.getElementsByTagName("sexualBehavior").item(0)).getAttribute("value"))));
 		}
 		else 
 		{
@@ -6721,7 +6720,7 @@ public abstract class GameCharacter implements XMLSaving {
 				s = getDirtyTalkNoPenetration(Sex.getTargetedPartner(this), isPlayerDom);
 			}**/
 			
-			String s = UtilText.parseSpeech(DirtyTalkRetriever.retrieveDirtyTalk(this),this);
+
 			return UtilText.parseSpeech(DirtyTalkRetriever.retrieveDirtyTalk(this),this);
 		}
 	}
