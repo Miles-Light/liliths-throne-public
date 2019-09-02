@@ -1,6 +1,11 @@
 package com.lilithsthrone.game.character.dirtyTalk;
 
 
+//Cas à couvrir
+//""
+//null
+//phrase trop longue
+
 public enum DomNormalDirtyTalkDialogue{
 	DOM_NORMAL_PLAIN_NOPENETRATION_1("This is going to be good!"),
 	DOM_NORMAL_PLAIN_NOPENETRATION_2("How best to use you, I wonder..."),

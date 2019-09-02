@@ -9,6 +9,7 @@ import com.lilithsthrone.utils.Util;
 public class DirtyTalkDialogue  {
 
 	public static final String defaultDialogue ="ah!"; //Felling Uninspired now, might delete it later idk
+													//Idea : maybe add a final List of String instead and return one at random, and add a log in error.log if something fuck up
 
 	//This is going to be a bit messy.
 	//I don't like switch case that much, but i have no choice considering the implementation of the dialogue.
@@ -68,7 +69,10 @@ public class DirtyTalkDialogue  {
 
 	//Don't fuck with the private thing, you don't want to break the architecture, do you
 	private static String generateDialogueFromList(ArrayList<String> listOfDialogues) {
-		return listOfDialogues.get(Util.random.nextInt(listOfDialogues.size()));
+		if (listOfDialogues.size()>0)
+			return listOfDialogues.get(Util.random.nextInt(listOfDialogues.size()));
+		else
+			return defaultDialogue;
 	}
 
 
