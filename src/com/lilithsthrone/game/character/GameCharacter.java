@@ -6755,6 +6755,7 @@ public abstract class GameCharacter implements XMLSaving {
 				break;
 			case SUB_EAGER:
 				if(this.isVaginaVirgin() && this.hasVagina()) {
+					//TODO manage this
 					returnedLine = UtilText.returnStringAtRandom(
 							"Come on, fuck me already! Take my virginity!",
 							"I'm still a virgin! Please, break me in already!",
@@ -6769,6 +6770,7 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 				break;
 			case SUB_NORMAL:
+				//TODO manage this as well
 				if(this.isVaginaVirgin() && this.hasVagina()) {
 					returnedLine = UtilText.returnStringAtRandom(
 							"I'll be a good [npc1.girl]! Just... I'm still a virgin, ok?",
