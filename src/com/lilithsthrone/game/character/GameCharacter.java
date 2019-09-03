@@ -525,7 +525,10 @@ public abstract class GameCharacter implements XMLSaving {
 		}
 		
 		//To be honest, i'm not really sure of this implementation now. I should check how NPC are generated and adapt.
-		sexualBehavior = SexualBehavior.generate(personality);
+		if(!this.isPlayer())
+			sexualBehavior = SexualBehavior.generate(personality);
+		else
+			this.sexualBehavior = SexualBehavior.PLAIN;
 		sexualOrientation = startingRace.getSexualOrientation(startingGender);
 
 		affectionMap = new HashMap<>();
