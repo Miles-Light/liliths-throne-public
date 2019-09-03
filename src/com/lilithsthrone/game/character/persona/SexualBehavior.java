@@ -22,40 +22,55 @@ import com.lilithsthrone.utils.Util;
  * I will use it in order to generate Personality traits, that will influence the way dialogue works during sex scenes.
  */
 
+/*The more i'm thinking about it, the more i think this whole thing can be used to implement a system that could change slaves 
+ * and friends scenes as well.
+ * As well as scenes at the beginning of sex, maybe?
+ * The text parser seems kind of rough and i'm just getting the grasp of all that javafx stuff, but i could at least implement something
+ * depending on  the introversion level at first.
+ * From what i saw of the architecture today, it will depend on the way those scenes are displayed.
+ * Anyway. I should briefly describe the personalities now. In order to have consistency in the writing.
+ */
+
 
 public enum SexualBehavior {
 
 	//All PT are average + default Sb 
+	
+	//This is the default personality. The NPC in its true and unaltered body.
+	//I will actually just put the strings returned as dirty talk already present in the game, so no big deal here.
+	//It's just "plain old boring porn-like sex."
+	//It's also the one that is returned if something acts up in the generation.
+	
 	PLAIN,
 
 
 	//----------------------------------------Average sub-types---------------------------------------------------------------------------------------------	
-	CURIOUS,	//average + curious
-	CAUTIOUS,	//average + cautious
-	NICE,		//average + nice
-	SELFISH,	//average + selfish
-	CONFIDENT,	//average + confident
-	PARANOID, 	//average + paranoid
+	CURIOUS,	//average + curious. The average curious type is curious in a sense that they love to know about what their partners like, as well as how they feel during sex.
+	CAUTIOUS,	//average + cautious Someone very undecive that thinks a little bit too much before acting.
+	NICE,		//average + nice	The average, nice and helpful npc.
+	SELFISH,	//average + selfish	The average, kinda mean NPC.
+	CONFIDENT,	//average + confident The average, confident NPC.
+	SELFCONSCIOUS,//average + neurotic  Someone with a light lack of self-confidence, but not in a extreme way like the LSE and AW type.
 	//----------------------------------------Introvert sub-types-------------------------------------------------------------------------------------------
 
-	SHY, 		// Pure introvert
-	FREAK,		//Introvert + Curious
-	COLD,		//Introvert + Cautious
-	CUTE,		//Introvert + Agreable
-	JUDGING,	//Introvert + Selfish
-	SAPIO, 		//Introvert + Confidence, stands for Sapiosexual... My favorite. This ones will be easy to write:
-	LSE,		//Introvert + Neurotic, stands for Low self esteem
+	SHY, 		//Pure introvert.	The average, shy NPC. Not to confound with LSE. The shy type just don't talk that much, especially about their emotions.
+	FREAK,		//Introvert + Curious  Do you already had sex with a psychopath? I did. More than once. We are not talking about someone that is psychopath in a sense that they like to hurt people. That is managed by the fetishes.
+	COLD,		//Introvert + Cautious Basically Angela from the office.
+	CUTE,		//Introvert + Agreable Nyan. Just think "Nyan."
+	JUDGING,	//Introvert + Selfish  Basically Jen from the office.
+	SAPIO, 		//Introvert + Confidence, stands for Sapiosexual... My favorite. This one will be easy to write. They spoke a lot, and are just fascinated about how sex works and the amount of pleasure sex can give.
+	LSE,		//Introvert + Neurotic, stands for Low self esteem. Alphys from undertale, without the geeky stuff. 
 
 
 	//--------------------------------------Extravert sub-types-----------------------------------------------------------------------------------------------
 
-	LOP, 		//Pure extrovert, stands for life of the party
-	WILL, 		//Extrovert + Curious, name sucks, stands for a person willing to try new things instead of just wanting to try new things
-	WORRIED,	//Extrovert + Cautious,
-	CARING, 	//Extrovert + Agreable
-	DEGRADING, 	//Extrovert + Selfish
-	LEADING,	//Extrovert + Confidence
-	AW ;		//Extrovert + Neurotic, stands for Attention Whore
+	TALKATIVE, 	//Pure extrovert. The average, friendly NPC.
+	INVASIVE, 	//Extrovert + Curious, Someone that is just a little bit too much when it comes about what others person are all about.
+	WORRIED,	//Extrovert + Cautious, // Someone a little bit worried about everything.
+	CARING, 	//Extrovert + Agreable	//Think about a person that love taking care of her partners and children. Someone really gentle. Someone that does not deserve at all to be in the Sub_Resist pace.
+	DEGRADING, 	//Extrovert + Selfish	//Think about a toxic person.
+	ENERGETIC,	//Extrovert + Confidence // An energetic person. Loves the rough and eager paces
+	AW ;		//Extrovert + Neurotic, stands for Attention Whore,
 
 
 	/**
@@ -71,7 +86,7 @@ public enum SexualBehavior {
 	 * First, i check if the char is introverted, extroverted, or "averageverted".
 	 * Depending on that, i choose a personality based on one of the other character trait at random.
 	 * If the gamecharacter is a fucking normie and have no redeemable traits of character, his personality will be the default one of his type.
-	 * (SHY, LOP, or PLAIN)
+	 * (SHY, TALKATIVE, or PLAIN)
 	 * The coscientiousnesthINng IS NOT used in all that process.
 	 * I don't want to write THAT much dialogue.
 	 * 
@@ -107,7 +122,7 @@ public enum SexualBehavior {
 		case AGREEABLENESS:
 			if (randomEntry.getValue() == PersonalityWeight.HIGH) return NICE; else return SELFISH;
 		case NEUROTICISM:
-			if (randomEntry.getValue() == PersonalityWeight.HIGH) return CONFIDENT; else return PARANOID;
+			if (randomEntry.getValue() == PersonalityWeight.HIGH) return CONFIDENT; else return SELFCONSCIOUS;
 		default:
 			return PLAIN;		
 		}
@@ -136,18 +151,18 @@ public enum SexualBehavior {
 
 		Map<PersonalityTrait, PersonalityWeight> personalityWithoutAveragesValue = listOfNonAverageTraits(personality);
 		if (personalityWithoutAveragesValue.isEmpty())
-			return LOP;
+			return TALKATIVE;
 		Entry<PersonalityTrait, PersonalityWeight> randomEntry = randomTraitForSBGeneration(personalityWithoutAveragesValue);
 
 		switch (randomEntry.getKey()){
 		case ADVENTUROUSNESS:
-			if (randomEntry.getValue() == PersonalityWeight.HIGH)  return WILL; else return WORRIED;
+			if (randomEntry.getValue() == PersonalityWeight.HIGH)  return INVASIVE; else return WORRIED;
 		case AGREEABLENESS:
 			if (randomEntry.getValue() == PersonalityWeight.HIGH) return CARING; else return DEGRADING;
 		case NEUROTICISM:
-			if (randomEntry.getValue() == PersonalityWeight.HIGH) return LEADING; else return AW;
+			if (randomEntry.getValue() == PersonalityWeight.HIGH) return ENERGETIC; else return AW;
 		default:
-			return LOP;		
+			return TALKATIVE;		
 		}
 	}
 
