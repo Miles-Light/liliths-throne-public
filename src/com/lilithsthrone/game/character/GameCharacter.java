@@ -6396,7 +6396,33 @@ public abstract class GameCharacter implements XMLSaving {
 		return weight;
 	}
 	
+	//I think that shenanigans are going to be necessary in order to make that shit work in multiple partners scene, but i don't know right now. Let's just try this way first
+	public String getCurrentPenetratedOrifice() {
+		if (!Main.game.isInSex()) 
+			return "...";
+		else
+			for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
+				if(Sex.getCharacterContactingSexArea(this, orifice).contains(Sex.getTargetedPartner(this))) {
+					return orifice.name();
+				}
+			}
+		
+		return "...";
+	}
 	
+	public String getCurrentPenetratingBodyPart() {
+		if (!Main.game.isInSex()) 
+			return "...";
+		else
+			for(SexAreaPenetration penetration : SexAreaPenetration.values()) {
+				if(Sex.getCharacterContactingSexArea(this, penetration).contains(Sex.getTargetedPartner(this))) {
+					return penetration.name();
+				}
+			}
+		
+		return "...";
+		
+	}
 	// Cum:
 	
 	public void incrementCumCount(SexType sexType) {
@@ -6624,6 +6650,7 @@ public abstract class GameCharacter implements XMLSaving {
 			GameCharacter target = Sex.getTargetedPartner(this);
 			
 			for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
+			penetré
 				if(Sex.getCharacterContactingSexArea(this, orifice).contains(target)) {
 					switch(orifice) {
 						case ANUS:
@@ -6668,6 +6695,7 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		
+		pénétreur
 			for(SexAreaPenetration penetration : SexAreaPenetration.values()) {
 				if(Sex.getCharacterContactingSexArea(this, penetration).contains(target)) {
 					switch(penetration) {

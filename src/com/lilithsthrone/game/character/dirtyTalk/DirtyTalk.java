@@ -6,11 +6,20 @@ import com.lilithsthrone.game.character.GameCharacter;
 import com.lilithsthrone.game.sex.Sex;
 import com.lilithsthrone.utils.Util;
 
-public class DirtyTalk  {
+public abstract class DirtyTalk  {
 
-	public static final String defaultDialogue ="ah! It feels so good..."; //Felling Uninspired now, might delete it later idk
+	public static final String DEFAULT_TALK ="ah! It feels so good..."; //Felling Uninspired now, might delete it later idk
 													//Idea : maybe add a final List of String instead and return one at random, and add a log in error.log if something fuck up
-
+	
+	public static final String PENETRATINGBODYPART_WHEN_PENETRATED = "[#npc2.getCurrentPenetratingBodyPart()]";
+			
+	public static final String PENETRATEDBODYPART_WHEN_PENETRATED = "[#npc1.getCurrentPenetratedOrifice()]";
+	
+	public static final String PENETRATINGBODYPART_WHEN_PENETRATING = "[#npc1.getCurrentPenetratingBodyPart()]";
+	
+	public static final String PENETRATEDBODYPART_WHEN_PENETRATING = "[#npc2.getCurrentPenetratedOrifice()]";
+	
+	
 	//This is going to be a bit messy.
 	//I don't like switch case that much, but i have no choice considering the implementation of the dialogue.
 	//I made it that way in order to make it convenient to add more dirty talks easily.
@@ -42,8 +51,6 @@ public class DirtyTalk  {
 				if (id.equals(idWithoutNumber(manon.name()))&& !manon.name().equals(manon.dialogue))
 					listDialogues.add(manon.dialogue);
 			}
-			if(true);
-			return generateDialogueFromList(listDialogues);
 		case SUB_EAGER:
 			for (SubEagerDirtyTalk angelica : SubEagerDirtyTalk.values()) {
 				if (id.equals(idWithoutNumber(angelica.name()))&& ! angelica.name().equals(angelica.dialogue))
@@ -63,17 +70,18 @@ public class DirtyTalk  {
 			}
 			return generateDialogueFromList(listDialogues);
 		default:
-			return defaultDialogue;
+			return DEFAULT_TALK;
 
 		}
 	}
 
 	//Don't fuck with the private thing, you don't want to break the architecture, do you
+	//Todo add
 	private static String generateDialogueFromList(ArrayList<String> listOfDialogues) {
 		if (listOfDialogues.size()>0)
 			return listOfDialogues.get(Util.random.nextInt(listOfDialogues.size()));
 		else
-			return defaultDialogue;
+			return DEFAULT_TALK;
 	}
 
 

@@ -18,7 +18,7 @@ public abstract class DirtyTalkRetriever {
 	public static String retrieveDirtyTalk(GameCharacter character) {
 
 
-		boolean isTheActionOngoingNotPenetrative = true;
+		boolean isTheActionOngoingPenetrative = false;
 
 
 		if(!Main.game.isInSex())
@@ -29,21 +29,24 @@ public abstract class DirtyTalkRetriever {
 			for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
 				if(Sex.getCharacterContactingSexArea(character, orifice).contains(Sex.getTargetedPartner(character))) {
 					id += PENETRATED;
-					isTheActionOngoingNotPenetrative = false;
+					isTheActionOngoingPenetrative = true;
 				}
 			}
 
 			for(SexAreaPenetration penetration : SexAreaPenetration.values()) {
 				if(Sex.getCharacterContactingSexArea(character, penetration).contains(Sex.getTargetedPartner(character))) {
 					id += PENETRATIVE;
-					isTheActionOngoingNotPenetrative = false;
+					isTheActionOngoingPenetrative = true;
 				}
 			}
 
-			if (isTheActionOngoingNotPenetrative) {
+			if (isTheActionOngoingPenetrative) {
 				id+=NOPENE;
 			}
-				return DirtyTalk.getDirtyTalkFromId(character,id)+"!"; //Exclamation mark is here just for testing, TODO remove it
+			
+					
+			return DirtyTalk.getDirtyTalkFromId(character,id)+"!"; //Exclamation mark is here just for testing, TODO remove it
+			
 
 		}
 	}
