@@ -1310,7 +1310,7 @@ public class DebugDialogue {
 				}
 				
 				UtilText.nodeContentSB.append("<br/>"
-						+character.getDescription()
+						+ (character.getDescription() != null && character.getDescription() != "" ? character.getDescription() : "error when fetching the documentation.")
 						+ "</p>");
 			}
 			
@@ -1331,7 +1331,7 @@ public class DebugDialogue {
 				return new Response("Help", "", PARSER_HELP);
 				
 			} else if (index == 3) {
-				return new Response("Targets", "", PARSER_TARGETS); //Yay! I fixed Innoxia's super fun and interesting guide to parsing!
+				return new Response("Targets", "", null);
 				
 			} else if (index == 4) {
 				return new Response("Commands", "", PARSER_COMMANDS_NEAT);
