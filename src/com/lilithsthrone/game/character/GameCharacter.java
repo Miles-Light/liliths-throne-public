@@ -6399,7 +6399,7 @@ public abstract class GameCharacter implements XMLSaving {
 	//I think that shenanigans are going to be necessary in order to make that shit work in multiple partners scene, but i don't know right now. Let's just try this way first
 	public String getCurrentPenetratedOrifice() {
 		if (!Main.game.isInSex()) 
-			return "...";
+			return "If you're reading this, then something fucked up during the generation of the dirty talk.";
 		else
 			for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
 				if(Sex.getCharacterContactingSexArea(this, orifice).contains(Sex.getTargetedPartner(this))) {
@@ -6407,12 +6407,12 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		
-		return "...";
+		return null;
 	}
 	
 	public String getCurrentPenetratingBodyPart() {
 		if (!Main.game.isInSex()) 
-			return "...";
+			return "If you're reading this, then something fucked up during the generation of the dirty talk.";
 		else
 			for(SexAreaPenetration penetration : SexAreaPenetration.values()) {
 				if(Sex.getCharacterContactingSexArea(this, penetration).contains(Sex.getTargetedPartner(this))) {
@@ -6420,7 +6420,7 @@ public abstract class GameCharacter implements XMLSaving {
 				}
 			}
 		
-		return "...";
+		return null;
 		
 	}
 	// Cum:

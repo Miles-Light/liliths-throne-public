@@ -17,7 +17,9 @@ public abstract class DirtyTalk  {
 	
 	public static final String PENETRATING_BODYPART_WHEN_PENETRATING = "[#npc1.getCurrentPenetratingBodyPart()]"; //PBTING
 	
-	public static final String PENETRATED_BODYPART_WHEN_PENETRATING = "[#npc2.getCurrentPenetratedOrifice()]";	//POTING;
+	public static final String PENETRATED_ORIFICE_WHEN_PENETRATING = "[#npc2.getCurrentPenetratedOrifice()]";	//POTING;
+
+	
 	
 	
 	//This is going to be a bit messy.
