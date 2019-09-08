@@ -11,13 +11,13 @@ public abstract class DirtyTalk  {
 	public static final String DEFAULT_TALK ="ah! It feels so good..."; //Felling Uninspired now, might delete it later idk
 													//Idea : maybe add a final List of String instead and return one at random, and add a log in error.log if something fuck up
 	
-	public static final String PENETRATING_BODYPART_WHEN_PENETRATED = "[#npc2.getCurrentPenetratingBodyPart()]"; //PBTED
+	public static final String GIVING_BODYPART_WHEN_PENETRATED = "[#npc2.getCurrentPenetratingBodyPart()]"; //PBTED
 			
 	public static final String PENETRATED_ORIFICE_WHEN_PENETRATED = "[#npc1.getCurrentPenetratedOrifice()]";	//POTED
 	
-	public static final String PENETRATING_BODYPART_WHEN_PENETRATING = "[#npc1.getCurrentPenetratingBodyPart()]"; //PBTING
+	public static final String GIVING_BODYPART_WHEN_GIVING = "[#npc1.getCurrentPenetratingBodyPart()]"; //PBTING
 	
-	public static final String PENETRATED_ORIFICE_WHEN_PENETRATING = "[#npc2.getCurrentPenetratedOrifice()]";	//POTING;
+	public static final String PENETRATED_ORIFICE_WHEN_GIVING = "[#npc2.getCurrentPenetratedOrifice()]";	//POTING;
 
 	
 	

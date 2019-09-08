@@ -11,7 +11,7 @@ public abstract class DirtyTalkRetriever {
 
 
 	private final static String PENETRATIVE = "PENETRATIVE_";
-	private final static String PENETRATED = "PENETRATED_";
+	private final static String RECEIVING = "RECEIVING_";
 	private final static String NOPENE = "NOPENETRATION_";
 
 
@@ -28,7 +28,7 @@ public abstract class DirtyTalkRetriever {
 			String id = "" +Sex.getSexPace(character).name()+"_"+character.getSexualBehavior().name()+"_";
 			for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
 				if(Sex.getCharacterContactingSexArea(character, orifice).contains(Sex.getTargetedPartner(character))) {
-					id += PENETRATED;
+					id += RECEIVING;
 					isTheActionOngoingPenetrative = true;
 				}
 			}
