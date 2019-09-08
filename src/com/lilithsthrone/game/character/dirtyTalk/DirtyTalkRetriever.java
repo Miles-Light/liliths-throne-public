@@ -9,8 +9,10 @@ import com.lilithsthrone.main.Main;
 //Golden-Retriever Morph WHEN
 public abstract class DirtyTalkRetriever {
 
+	
+	//Depending on the level of affection or lust, we allow for the really exciting shit to be said
 
-	private final static String PENETRATIVE = "PENETRATIVE_";
+	private final static String GIVING = "GIVING_";
 	private final static String RECEIVING = "RECEIVING_";
 	private final static String NOPENE = "NOPENETRATION_";
 
@@ -18,7 +20,7 @@ public abstract class DirtyTalkRetriever {
 	public static String retrieveDirtyTalk(GameCharacter character) {
 
 
-		boolean isTheActionOngoingPenetrative = false;
+		boolean hasTheFunStartedYet = false;
 
 
 		if(!Main.game.isInSex())
@@ -29,18 +31,21 @@ public abstract class DirtyTalkRetriever {
 			for(SexAreaOrifice orifice : SexAreaOrifice.values()) {
 				if(Sex.getCharacterContactingSexArea(character, orifice).contains(Sex.getTargetedPartner(character))) {
 					id += RECEIVING;
-					isTheActionOngoingPenetrative = true;
+					hasTheFunStartedYet = true;
 				}
 			}
 
-			for(SexAreaPenetration penetration : SexAreaPenetration.values()) {
-				if(Sex.getCharacterContactingSexArea(character, penetration).contains(Sex.getTargetedPartner(character))) {
-					id += PENETRATIVE;
-					isTheActionOngoingPenetrative = true;
+			if(!hasTheFunStartedYet) {
+				for(SexAreaPenetration penetration : SexAreaPenetration.values()) {
+					if(Sex.getCharacterContactingSexArea(character, penetration).contains(Sex.getTargetedPartner(character))) {
+						id += GIVING;
+						hasTheFunStartedYet = true;
+					}
 				}
 			}
+			
 
-			if (isTheActionOngoingPenetrative) {
+			if (!hasTheFunStartedYet) {
 				id+=NOPENE;
 			}
 			
