@@ -2,7 +2,6 @@ package com.lilithsthrone.game.character.dirtyTalk;
 
 
 
-//Méthode de travail : en remplir un de chaque catégorie puis écrire les variantes
 public enum DomGentleDirtyTalk {
 	
 
