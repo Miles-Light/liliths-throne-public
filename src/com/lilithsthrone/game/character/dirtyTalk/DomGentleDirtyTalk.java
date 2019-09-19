@@ -72,7 +72,7 @@ public enum DomGentleDirtyTalk {
 	DOM_GENTLE_PLAIN_GIVING_2("Good [npc2.girl]!"),
 	DOM_GENTLE_PLAIN_GIVING_3("You like that, huh?"),
 	DOM_GENTLE_CURIOUS_GIVING_1("Do you like it? You kinda seems to like it... "),
-	DOM_GENTLE_CURIOUS_GIVING_2("It must be so good for you, huh?"),
+	DOM_GENTLE_CURIOUS_GIVING_2("It must be so good for you..."),
 	DOM_GENTLE_CURIOUS_GIVING_3("It feels good...keep going..."),
 	DOM_GENTLE_CAUTIOUS_GIVING_1("Does it feels good, [npc2.babe]?"),
 	DOM_GENTLE_CAUTIOUS_GIVING_2("Here... Nice and slowly... You like that..?"),

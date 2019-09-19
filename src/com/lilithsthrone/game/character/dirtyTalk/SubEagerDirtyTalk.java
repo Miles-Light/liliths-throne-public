@@ -64,7 +64,7 @@ public enum SubEagerDirtyTalk{
 	SUB_EAGER_ENERGETIC_NOPENETRATION_1("YES!YES!YES! I'm your bitch!"),
 	SUB_EAGER_ENERGETIC_NOPENETRATION_2("I'm yours to use! I'm your property! Fuck me the way you want!"),
 	SUB_EAGER_ENERGETIC_NOPENETRATION_3("SUB_EAGER_ENERGETIC_NOPENETRATION_3"),
-	SUB_EAGER_AW_NOPENETRATION_1("Oh! Ah! Oh! I'm so horny for you, baby!"),
+	SUB_EAGER_AW_NOPENETRATION_1("I'm so horny for you, [npc1.babe]!"),
 	SUB_EAGER_AW_NOPENETRATION_2("I'll be the nicest, little bitch you ever had! I promise!"),
 	SUB_EAGER_AW_NOPENETRATION_3("SUB_EAGER_AW_NOPENETRATION_3"),
 	SUB_EAGER_PLAIN_GIVING_1("SUB_EAGER_PLAIN_GIVING_1"),
